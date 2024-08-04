@@ -132,8 +132,25 @@ button:hover {
 
 
 
+/* MEDIA QUERIES */
+
+/* Small Mobile */
+@media screen and (min-width: 400px) {
+
+}
+
+/* Mobile */
+@media screen and (min-width: 600px) {
+
+}
+
+/* Tablet */
+@media screen and (min-width: 900px) {
+
+}
 
 
+/* Laptop */
 @media screen and (min-width: 1080px) {
 
   #menu {
@@ -149,4 +166,9 @@ button:hover {
     display: none;
   }
 
+}
+
+/* Large Laptop + Desktop */
+@media screen and (min-width: 1440px) {
+  
 }
