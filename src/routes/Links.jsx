@@ -1,12 +1,18 @@
 import React from 'react'
-import { Route, Routes } from 'react-router-dom'
-// import the axios it is installed
+import { HashRouter, Route, Routes } from 'react-router-dom'
+import axios from 'axios'
+
+import Home from '../pages/Home'
+import About from '../pages/About'
 
 const Links = () => {
   return (
-    <div>
-      
-    </div>
+    <>
+      <Routes>
+        <Route exact path='/' element={<Home/>}/>
+        <Route path='/about' element={<About/>}/>
+      </Routes>
+    </>
   )
 }
 
