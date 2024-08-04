@@ -1,33 +1,13 @@
-import React from 'react'
+import { useState, useEffect } from "react"
+import axios from "axios"
+import { useNavigate } from "react-router-dom"
+
+const apiKey = import.meta.env.VITE_NEWS_API_KEY
 
 const Home = () => {
   return (
     <>
-      <div id='home-content-container'>
-        this is the home content container
-
-        <div id='featured-article'>
-          this is the featured article placeholder
-        </div>
-
-        <div id='article-grid'>
-            <div className='article-card'>
-              article card placeholder
-            </div>
-
-            <div className='article-card'>
-              article card placeholder
-            </div>
-
-            <div className='article-card'>
-              article card placeholder
-            </div>
-
-            <div className='article-card'>
-              article card placeholder
-            </div>
-        </div>
-      </div>
+      home page
     </>
   )
 }

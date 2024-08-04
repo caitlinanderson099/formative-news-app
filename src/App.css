@@ -129,30 +129,6 @@ footer {
   color: white;
 }
 
-#home-content-container {
-  border: 2px solid red;
-  padding: 30px;
-}
-
-#featured-article {
-  border: 2px solid blue;
-  border-radius: 9px;
-  padding: 20px;
-}
-
-#article-grid {
-  padding: 10px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-
-  .article-card {
-    background-color: pink;
-    padding: 20px;
-    border-radius: 9px;
-  }
-}
-
 
 
 
