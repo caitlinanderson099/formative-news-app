@@ -1,12 +1,10 @@
-import { HashRouter } from "react-router-dom"
 import './App.css'
+import { HashRouter, Link } from "react-router-dom"
+import Links from './routes/Links'
+import { ArticleContextProvider } from './components/context/ArticleContext'
 
 import Header from "./components/nav/Header"
 import Footer from "./components/nav/Footer"
-import Links from "./routes/Links"
-
-import Home from "./pages/Home"
-import About from "./pages/About"
 
 
 const App = () => {
@@ -15,9 +13,12 @@ const App = () => {
   return (
     <>
       <HashRouter>
+        <ArticleContextProvider>
         <Header/>
         <Links/>
         <Footer/>
+        </ArticleContextProvider>
+       
       </HashRouter>
     </>
   )

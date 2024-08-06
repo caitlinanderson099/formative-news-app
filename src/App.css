@@ -1,8 +1,16 @@
+/* Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Space+Grotesk:wght@300..700&display=swap');
+
 /* Global Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  background: rgb(120, 83, 147);
+  background: linear-gradient(360deg, rgba(120, 83, 147, 1) 0%, rgba(55, 51, 57, 1) 100%);
 }
 
 /* nav */
@@ -130,8 +138,29 @@ footer {
 }
 
 
+.article-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 30px;
 
+  .article-card {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 9px;
+    padding: 10px;
 
+    h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: bold;
+    }
+
+    p {
+      font-family: "Edu AU VIC WA NT Hand", cursive;
+    }
+  }
+}
 
 
 
@@ -139,19 +168,13 @@ footer {
 /* MEDIA QUERIES */
 
 /* Small Mobile */
-@media screen and (min-width: 400px) {
-
-}
+@media screen and (min-width: 400px) {}
 
 /* Mobile */
-@media screen and (min-width: 600px) {
-
-}
+@media screen and (min-width: 600px) {}
 
 /* Tablet */
-@media screen and (min-width: 900px) {
-
-}
+@media screen and (min-width: 900px) {}
 
 
 /* Laptop */
@@ -173,6 +196,4 @@ footer {
 }
 
 /* Large Laptop + Desktop */
-@media screen and (min-width: 1440px) {
-  
-}
+@media screen and (min-width: 1440px) {}
