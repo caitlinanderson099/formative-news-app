@@ -266,15 +266,15 @@ footer {
 
 /* about page */
 #about-page-container {
-  border: 2px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 30px;
 
   #about-page-content {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    border: 2px solid blue;
     gap: 40px;
-    padding: 20px;
 
     #about-me-card, #about-project-card {
       width: 400px;
