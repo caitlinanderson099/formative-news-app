@@ -57,6 +57,12 @@ const Home = () => {
     setCategory(newCategory);
   }
 
+  // handle query change
+  const handleQueryChange = (event) => {
+    let newQuery = event.target.value
+    setQuery(newQuery);
+  }
+
   const handleReadMoreClick = (index) => {
     console.log(index);
     navigate(`/article/${index}`)
@@ -68,12 +74,14 @@ const Home = () => {
       // map return
       return (
         <div key={index} className='article-card'>
-          <h3> {article.title} </h3>
-          <p> {article.description} </p>
-          <button onClick={() => handleReadMoreClick(index)}> Read More </button>
+        <h3> {article.title} </h3>
+        <h4> {article.author} </h4>
+        <button onClick={() => handleReadMoreClick(index)}> Read More </button>
         </div>
       )
     })
+
+    
 
     // articles component return
     return (
@@ -86,10 +94,12 @@ const Home = () => {
   return (
     <div className='home-container'>
 
-      <h2 id='title'> <Newspaper/>  News From Around The World </h2>
+      <h2 id='title'> <Newspaper/>  Your One Stop News Hub </h2>
+      <h3 id='subtitle'> Get All The Latest News Right Here </h3>
 
       <div className='filter-container'>
 
+        
       {/* COUNTRY FILTERS */}
       <div className='filter-flex-container'>
           <label htmlFor='country-select'> Country: </label>
@@ -121,7 +131,7 @@ const Home = () => {
 
       <div className='article-container'>
           {loading ? (
-            <div>Loading...</div>
+            <div>Loading... </div>
           ) : (
             <Articles articles={articles}/>
           )}

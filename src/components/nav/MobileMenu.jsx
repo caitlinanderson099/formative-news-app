@@ -9,6 +9,11 @@ const MobileMenu = ({closeMethod}) => {
      </div>
 
      <ul id="mobile-menu">
+
+     <div id='logo'>
+          <Link to='/'> <h2> News API </h2> </Link>
+        </div>
+
         <li>
             <Link to='/' onClick={closeMethod}> Home </Link>
         </li>
