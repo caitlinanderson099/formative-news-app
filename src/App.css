@@ -272,19 +272,26 @@ footer {
   #about-page-content {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 80%;
     border: 2px solid blue;
+    gap: 40px;
     padding: 20px;
 
-    #about-me-section {
-      border: 2px solid pink;
+    #about-me-card, #about-project-card {
+      width: 400px;
+      padding: 20px;
+      border-radius: 9px;
+      background-color: white;
+      box-shadow: 5px 5px 17px -6px rgba(0, 0, 0, 0.75);
+      -webkit-box-shadow: 5px 5px 17px -6px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 5px 5px 17px -6px rgba(0, 0, 0, 0.75);
+      font-family: "Space Grotesk", sans-serif;
+
+      img {
+        width: 100%;
+        border-radius: 9px;
+      }
+
     }
-
-    #about-project-section {
-      border: 2px solid purple;
-    }
-
-
   }
 }
 
