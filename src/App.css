@@ -136,11 +136,15 @@ button:hover {
 }
 
 footer {
+  text-align: center;
   position: sticky;
   width: 100%;
   padding: 30px;
   background-color: #1f1f1f;
   color: white;
+  font-weight: bold;
+  font-size: 1.4em;
+  font-family: "Space Grotesk", sans-serif;
 }
 
 /* Home Page Title */

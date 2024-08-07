@@ -14,7 +14,6 @@ const About = () => {
                 design websites and applications that will help make the users lives easier when exploring online.
                 This also reflects myself as a person, I am very much organised and love to create and build things like Lego Sets 
                 and I enjoy spending time reading a good book, exploring places with friends and family, and spending time with animals.</p>
-              {/* <p> Here is a little paragraph about myself as a designer/person in general. </p> */}
           </div>
 
           <div id='about-project-card'>
