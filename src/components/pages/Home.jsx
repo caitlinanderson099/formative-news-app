@@ -20,29 +20,40 @@ const Home = () => {
   // initiate usenavigate
   const navigate = useNavigate();
 
+  // set up the error message 
+  const [error, setError] = useState('');
+
+  // set up the search state
+  const [searchTerm, setSearchTerm] = useState('');
+
   // bring in state and dispatch functions
   const {articles, dispatch} = useArticlesContext();
 
   useEffect(() => {
     // set loading to true:
     SetLoading(true);
+    setError(''); // Reset error message
 
     //  fetch function
     const fetchArticles = async() => {
       await axios.get(`https://newsapi.org/v2/top-headlines?language=en&country=${country}&category=${category}&apiKey=${apiKey}`)
       .then(response => {
-        console.log(response.data.articles)
-        // setArticles(response.data.articles)
-        dispatch({type: 'GET_ARTICLES', payload: response.data.articles})
-        SetLoading(false)
+        if (response.data.articles.length === 0) {
+          setError('No Articles Found');
+        } else {
+          setError('');
+        }
+        dispatch({ type: 'GET_ARTICLES', payload: response.data.articles });
+        SetLoading(false);
       })
       .catch(error => {
         console.log(error);
+        setError('An error occurred while fetching articles.');
         SetLoading(true);
-      })
+      });
     }
     fetchArticles();
-  }, [country, category]);
+  }, [country, category, searchTerm, dispatch]);
 
   // handle country change
   const handleCountryChange = (event) => {
@@ -57,10 +68,17 @@ const Home = () => {
     setCategory(newCategory);
   }
 
-  // handle query change
-  const handleQueryChange = (event) => {
-    let newQuery = event.target.value
-    setQuery(newQuery);
+    // handle search term change
+    const handleSearchTermChange = (event) => {
+      let newSearchTerm = event.target.value;
+      setSearchTerm(newSearchTerm);
+    };
+
+  // handle clear filters
+  const handleClearFilters = (event) => {
+    setCountry('');
+    setCategory('');
+    setSearchTerm('');
   }
 
   const handleReadMoreClick = (index) => {
@@ -103,7 +121,7 @@ const Home = () => {
       {/* COUNTRY FILTERS */}
       <div className='filter-flex-container'>
           <label htmlFor='country-select'> Country: </label>
-          <select name='country-select' id='country-select' onChange={handleCountryChange}>
+          <select name='country-select' id='country-select' value={country} onChange={handleCountryChange}>
           <option value=''> Any </option>
             <option value='us'> USA </option>
             <option value='gb'> Britain </option>
@@ -115,7 +133,7 @@ const Home = () => {
         {/* CATEGORY FILTERS */}
         <div className='filter-flex-container'>
           <label htmlFor='category-select'> Category: </label>
-          <select name='category-select' id='category-select' onChange={handleCategoryChange}>
+          <select name='category-select' id='category-select' value={category} onChange={handleCategoryChange}>
           <option value=''> All </option>
             <option value='business'> Business </option>
             <option value='entertainment'> Entertainment </option>
@@ -125,17 +143,34 @@ const Home = () => {
             <option value='technology'> Technology </option>
           </select>
         </div>
+
+           {/* SEARCH FILTER */}
+           <div className="filter-flex-container">
+          <label htmlFor="search-input">Search:</label>
+          <input
+            type="text"
+            id="search-input"
+            value={searchTerm}
+            onChange={handleSearchTermChange}
+            placeholder="Search articles"
+          />
+        </div>
+
+        {/* clear filters button */}
+        <button onClick={handleClearFilters}> Clear Filters </button>
        
       {/* end of filter container */}
       </div>
 
       <div className='article-container'>
-          {loading ? (
-            <div>Loading... </div>
-          ) : (
-            <Articles articles={articles}/>
-          )}
-      </div>
+      {loading ? (
+        <div>Loading... </div>
+      ) : error ? (
+        <div>{error}</div>
+      ) : (
+        <Articles articles={articles} />
+      )}
+    </div>
 
     {/* end of home container */}
     </div>

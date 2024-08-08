@@ -137,7 +137,7 @@ button:hover {
 
 footer {
   text-align: center;
-  position: sticky;
+  position: fixed;
   width: 100%;
   padding: 30px;
   background-color: #1f1f1f;
@@ -170,6 +170,7 @@ footer {
 .filter-container {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 20px;
   padding: 30px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -226,11 +227,6 @@ footer {
 
     }
   }
-
-  .article-card:hover {
-    scale: 1.1;
-    transition: all 0.3s ease;
-  }
 }
 
 /* back button for single article pages */
@@ -281,8 +277,9 @@ footer {
     gap: 40px;
 
     #about-me-card, #about-project-card {
-      width: 400px;
-      padding: 20px;
+      display: flex;
+      gap: 10px;
+      padding: 10px;
       border-radius: 9px;
       background-color: white;
       box-shadow: 5px 5px 17px -6px rgba(0, 0, 0, 0.75);
@@ -291,8 +288,14 @@ footer {
       font-family: "Space Grotesk", sans-serif;
 
       img {
-        width: 100%;
+        width: 45%;
+        height: 100%;
+        object-fit: cover;
         border-radius: 9px;
+      }
+
+      .card-content {
+        margin: 10px 0px;
       }
 
     }
@@ -308,10 +311,6 @@ footer {
 
   .article-container {
     grid-template-columns: 1fr;
-
-    .article-card:hover {
-      scale: 1.0;
-    }
   }
 }
 
@@ -329,10 +328,6 @@ footer {
 
   .article-container {
     grid-template-columns: repeat(3, 1fr);
-
-    .article-card:hover {
-      scale: 1.0;
-    }
   }
 }
 
@@ -355,10 +350,6 @@ footer {
 
   .article-container {
     grid-template-columns: repeat(3, 1fr);
-
-    .article-card:hover {
-      scale: 1.1;
-    }
   }
 
 }
