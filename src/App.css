@@ -137,7 +137,6 @@ button:hover {
 
 footer {
   text-align: center;
-  position: fixed;
   width: 100%;
   padding: 30px;
   background-color: #1f1f1f;
@@ -309,16 +308,60 @@ footer {
 /* Small Mobile */
 @media screen and (min-width: 400px) {
 
+  .filter-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
   .article-container {
     grid-template-columns: 1fr;
+  }
+
+  #about-page-container {
+    display: flex;
+    flex-direction: column;
+
+    #about-page-content {
+      grid-template-columns: 1fr;
+
+      #about-me-card, #about-project-card {
+        flex-direction: column;
+        img {
+          width: 100%;
+        }
+      }
+    }
   }
 }
 
 /* Mobile */
 @media screen and (min-width: 600px) {
 
+  .filter-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+
   .article-container {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  #about-page-container {
+    display: flex;
+    flex-direction: column;
+
+    #about-page-content {
+      grid-template-columns: repeat(2, 1fr);
+
+      #about-me-card, #about-project-card {
+        img {
+          width: 100%;
+        }
+      }
+    }
   }
 
 }
@@ -326,8 +369,32 @@ footer {
 /* Tablet */
 @media screen and (min-width: 900px) {
 
+  .filter-container {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+
   .article-container {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  #about-page-container {
+    display: flex;
+    flex-direction: column;
+
+    #about-page-content {
+      grid-template-columns: repeat(2, 1fr);
+
+      #about-me-card, #about-project-card {
+        flex-direction: row;
+        img {
+          width: 45%;
+          height: 100%;
+        }
+      }
+    }
   }
 }
 
